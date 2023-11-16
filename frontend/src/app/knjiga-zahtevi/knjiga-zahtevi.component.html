@@ -1,0 +1,84 @@
+<header>
+        
+           
+    <a href=""><img src="../assets/book.jpg"></a>
+    <nav class="navbar">
+    <output class="nav-branding">
+       
+        <output>Biblioteka grada Leskovca</output> 
+        
+    </output>
+    
+    <ul class="nav-menu">
+        <div class="logovan">
+        <li class="nav-item">
+            <a href="prijava">{{korisnik.ime}} {{korisnik.prezime}}</a>
+        </li>
+        </div>
+        <div class="logovan">
+        <li class="nav-item">
+            <a href="profil">
+            <img [src]="korisnik.slika" *ngIf="korisnik.slika" >    
+            </a>
+        </li>
+        </div>
+        <div class="logovan">
+        <li class="nav-item">
+            <a href="profil">
+            <img src="../assets/profilna_slika.jpg" *ngIf="!korisnik.slika">
+            </a>
+        </li>
+        </div>
+        <div class="logovan">
+        <li class="nav-item">
+            <button (click)="odjava()" class="big">Odjavi se</button>
+            <button (click)="odjava()" class="small"><i class="material-icons">logout</i></button>
+
+        </li>
+        </div>
+    </ul>
+</nav>
+</header>
+<div >
+    <strong style=" font-weight: normal;">Zahtevi za knjigama:
+</strong>
+    <hr>
+    <hr>
+    <ul *ngFor="let z of zahtevi">
+        <div class="knjiga">
+        <div>
+        <img [src]=z.slika>
+        </div>
+        <div>
+            <li>
+                Zahtev je podneo korisnik:{{z.kor}}
+            </li>
+        <li>
+            Naziv:{{z.naziv}}
+        </li>
+        <li>
+            Autor/ri:{{z.autor}}
+        </li>
+        <li>Zanr:{{z.zanr}}</li>
+        <li>Izdavac:{{z.izdavac}}</li>
+        <li>Godina izdanja:{{z.godina}}</li>
+        <li>Jezik:{{z.jezik}}
+            <button (click)="dodaj(z)" [disabled]="z.prihvacena" class="big">Prihvati zahtev</button>
+            <button (click)="dodaj(z)" [disabled]="z.prihvacena" class="small"><i class="material-icons">checked</i></button>
+
+        </li>
+        
+            
+       
+    </div>
+   
+    
+     </div>  
+     <hr>
+    <hr>
+    </ul>
+    <footer>
+        <strong>copyright &copy;2022</strong>
+        <strong> Biblioteka grada Leskovca </strong>
+    </footer>
+    </div>

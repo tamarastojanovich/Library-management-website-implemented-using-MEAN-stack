@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "630f6192a2a60a7c4ccd4345"
+  },
+  "kor_ime": "fiona",
+  "lozinka": "fionA14-",
+  "ime": "Fiona",
+  "prezime": "Simonovic",
+  "adresa": "Bulevar oslobodjenja 8,Leskovac",
+  "telefon": "065889745",
+  "mejl": "fiona45@gmail.com",
+  "tip": "citalac",
+  "prihvacen": false,
+  "__v": 0
+}]

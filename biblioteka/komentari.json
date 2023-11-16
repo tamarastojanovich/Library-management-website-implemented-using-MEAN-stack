@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "62efb2885ab5ff664782dfa8"
+  },
+  "idKnjige": "1",
+  "kor": "ana",
+  "vreme": "8/7/2022, 2:39:36 PM",
+  "ocena": 10,
+  "azuriran": true,
+  "__v": 0,
+  "tekst": "Gordost i predrasuda je jako dobra knjiga i svima je preporucujem od duse"
+},{
+  "_id": {
+    "$oid": "62f045ddcf44782e3925ad7e"
+  },
+  "idKnjige": "3",
+  "kor": "pera",
+  "vreme": "8/8/2022, 1:08:13 AM",
+  "tekst": "Najbolja knjiga koju sam ikad citala.Sve preporuke :)",
+  "ocena": 10,
+  "azuriran": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62fe7f872a1453c31585bb15"
+  },
+  "idKnjige": "1",
+  "kor": "pera",
+  "vreme": "8/18/2022, 8:05:59 PM",
+  "tekst": "dobra knjiga nema sta :D",
+  "ocena": 10,
+  "azuriran": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62fe8afc2a1453c31585bba3"
+  },
+  "idKnjige": "2",
+  "kor": "pera",
+  "vreme": "8/18/2022, 8:54:52 PM",
+  "tekst": "DObra knjiga nema sta ",
+  "ocena": 10,
+  "azuriran": true,
+  "__v": 0
+}]

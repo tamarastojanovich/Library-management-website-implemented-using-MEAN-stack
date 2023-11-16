@@ -1,0 +1,120 @@
+
+<header>
+        
+           
+            <a href=""><img src="../assets/book.jpg"></a>
+            <nav class="navbar">
+            <output class="nav-branding">
+               
+                <output>Biblioteka grada Leskovca</output> 
+                
+            </output>
+            
+            <ul class="nav-menu">
+                <div class="pretraga">
+                    <input type="text" [(ngModel)]="pretra" (focus)="focused()" placeholder="Pretraga">
+                    <button (click)="search()" class="search-button big">Pretraga</button>
+                    <button (click)="search()" class="search-button small" ><mat-icon>search</mat-icon></button>
+                    </div>
+                <div>
+                <li class="nav-item">
+                    <button *ngIf="!ulogovan" (click)="prijava()" class="big">Prijavi se</button>
+                    <button *ngIf="!ulogovan" (click)="prijava()" class="small"><i class="material-icons">login</i></button>
+                </li>
+            </div>
+            <div>
+                <li class="nav-item">
+                    <button *ngIf="!ulogovan" (click)="registracija()" class="big">Registracija</button>
+                    <button *ngIf="!ulogovan" (click)="registracija()" class="small"><i class="material-icons">add_reaction</i></button>
+                </li>
+                </div>
+                <div class="logovan">
+                <li class="nav-item">
+                    <a href="prijava" *ngIf="ulogovan">{{korisnik.ime}} {{korisnik.prezime}}</a>
+                </li>
+                </div>
+                <div class="logovan">
+                <li class="nav-item">
+                    <a href="profil">
+                    <img [src]="korisnik.slika" *ngIf="ulogovan && korisnik.slika" >
+                    </a>
+                </li>
+                </div>
+                <div class="logovan">
+                                    <li class="nav-item">
+                    <a href="profil">
+                    <img src="../assets/profilna_slika.jpg" *ngIf="ulogovan && !korisnik.slika">
+                    </a>
+                </li>
+                </div>
+                <div class="logovan">
+                <li class="nav-item">
+                    <button *ngIf="ulogovan" (click)="odjava()" class="big">Odjavi se</button>
+                    <button *ngIf="ulogovan" (click)="odjava()" class="small"><i class="material-icons">logout</i></button>
+                </li>
+                </div>
+            </ul>
+        </nav>
+        </header>
+        <div>
+        <div *ngIf="searchFocus && ulogovan" class="filtri" >
+        <div class="zanr" >
+        <mat-form-field >
+            <mat-label style="color:white">Zanr</mat-label>
+            <mat-select multiple [(ngModel)]="zanr">
+                <mat-option *ngFor="let z of zanrovi" [value]="z">{{z}}</mat-option>
+            </mat-select>
+        
+        </mat-form-field>
+            
+        
+        </div>
+        <div class="godina" >
+        Godina izdanja:
+        od:<input type="text" [(ngModel)]="od">
+        do:<input type="text" [(ngModel)]="do">
+        </div>
+        <div class="izdavac">
+       <select [(ngModel)]="izdavac">
+            <option value="izdavac" hidden>Izdavac</option>
+            <option *ngFor="let i of izdavaci">{{i}}</option>
+        </select>
+        <button (click)="focusout()">Primeni</button>
+        </div>
+        
+        </div>
+        </div>
+    
+<body>
+<div class="slider">
+    <div class="slides">
+        <input type="radio" name="picture" id="pic1">
+        <input type="radio" name="picture" id="pic2">
+        <input type="radio" name="picture" id="pic3">
+
+        <div class="slide first">
+            <img [src]="prvaKnjiga">
+        </div>
+        <div class="slide">
+            <img [src]="drugaKnjiga">
+        </div>
+        <div class="slide">
+            <img [src]="trecaKnjiga">
+        </div>
+    </div>
+
+    <!-- manual sliding-->
+    <div class="navigation">
+        <label for="pic1" class="manual-button"></label>
+        <label for="pic2" class="manual-button"></label>
+        <label for="pic3" class="manual-button"></label>
+    </div>
+
+</div>
+
+</body>
+<footer>
+    <strong>copyright &copy;2022</strong>
+    <strong> Biblioteka grada Leskovca </strong>
+</footer>
+

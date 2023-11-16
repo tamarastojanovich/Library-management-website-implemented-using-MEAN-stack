@@ -1,0 +1,566 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+@media all and (max-width:450px){
+    body{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+    img{
+        height:70px;
+        float:left;
+        align-items: center;
+        display:flex;
+        cursor: pointer;
+        
+    }
+    header{
+        width: 100vw;
+    }
+    
+        output{
+    display: none;
+    }
+    
+    button{
+        width:100px;
+        height:30px;
+        background-color: navy;
+        border-color:navy;
+        color:white;
+    }
+    
+    button:disabled{
+        width:100px;
+        height:30px;
+        background-color: gray;
+        border-color:gray;
+        color:black;
+        cursor: not-allowed;
+    }
+
+    
+    body .info{
+        position: relative;
+        left:5px;
+        top:55vh;
+        display: flex;
+        width: 100vw;
+        justify-content: space-between;
+        
+    }
+    
+    .info_knj{
+        position: absolute;
+    }
+   
+
+    body output{
+        height:300px;
+    }
+    
+    body .info_slika{
+        position: relative;
+        left:70px;
+       
+        margin-top: -40vh;
+        width: 100vw;
+        display: grid;
+    
+    }
+    
+    
+    body .info_slika img{
+        max-height:380px;
+        max-width: 300px;
+        
+    }
+    
+    .info_slika li{
+        background-color: transparent;
+        position:relative;
+        height: 300px;
+        left:100px;
+    }
+    .info_slika li a{
+        color:orange;
+        text-decoration: underline;
+        position: relative;
+        left:10px;
+        font-size:25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    .info_slika output{
+        position: relative;
+        margin-top: -70%;
+    }
+    
+    .izlaz{
+        position: relative;
+        right:500px;
+        width:50px;
+        left:450px;
+        
+    }
+    
+    
+    .info input[type="text"]{
+        height: 100%;
+        width: 50%;
+        padding-left: 10px;
+        font-size: 17px;
+        outline: none;
+        border:none;
+        border-bottom: 2px solid silver;
+    }
+    .info input:focus{
+        height: 100%;
+        width: 50%;
+        padding-left: 10px;
+        font-size: 17px;
+        outline: none;
+        border:none;
+        border-bottom: 2px solid orange;
+    }
+    
+    
+    body .info .komentari-div .komentari{
+        position: relative;
+        overflow-wrap: break-word;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100vw;
+        right:5px;
+        
+    
+    }
+    body .info .komentari-div{
+        position: relative;
+        
+       margin-top:-10%;
+       width:100vw;
+       top:25vh;
+       overflow-y: hidden;
+      
+    }
+    body .info .komentari-div .komentari ul{
+        display: flex;
+        flex-direction: row;
+      width:100vw;
+        overflow-wrap: break-word;
+    }
+    .komentari li{
+        overflow-wrap: break-word;
+        font-size: 18px;
+        background-color: transparent;
+    }
+    .komentari li strong{
+        color:black;
+    }
+    .info li strong{
+        color:orange;
+    }
+    .nema_kom{
+        position: relative;
+        left:350px;
+        font-weight: normal;
+        font-size: medium;
+        color:grey;
+        
+    }
+    .ocena{
+        
+        
+    
+        position: relative;
+        display: flex;
+        flex-direction: row;
+    }
+    body .komentari-div .komentari .ocena {
+        position: relative;
+        width:100vw;
+    }
+    .ocena ul{
+        display: flex;
+        flex-direction: row;
+        justify-content:unset;
+        
+       
+    }
+    .ocena li strong{
+        color:black;
+    }
+    
+    .ocena strong{
+        font-weight: normal;
+        color:#000000;
+    }
+    .kor{
+        position: relative;
+        margin-right: 10px;
+        color:black;
+        font-weight: normal;
+    }
+    body .info .komentari-div .komentari .ocena .vreme{
+        position: relative;
+        color:black;
+        font-weight: normal;
+        left:10px;
+    }
+    
+    .tekst{
+        position:relative;
+        color:black;
+        font-weight: normal;
+        display: inline-block;
+        word-break: break-all;
+        overflow-y: hidden;
+        width: 100vw;
+        
+       
+    }
+    
+    .link{
+        font-weight: normal;
+        position: relative;
+        left:-900px;
+    }
+}
+
+h3{
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    display: flex;
+    font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+body{
+    position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height:90vh;
+}
+header{
+    background-color:orange;
+    width: 100vw;
+}
+
+li{
+    list-style: none;
+    
+}
+
+img{
+    height:70px;
+    float:left;
+    align-items: center;
+    display:flex;
+    cursor: pointer;
+    
+}
+
+.tabela{
+    position: absolute;
+    box-sizing: border-box;
+    border-color:black;
+    margin-top: 100px;
+    left:0;
+    top:0;
+}
+
+output{
+    float:right;
+}
+
+button{
+    width:100px;
+    height:30px;
+    background-color: navy;
+    border-color:navy;
+    color:white;
+}
+
+button:disabled{
+    width:100px;
+    height:30px;
+    background-color: gray;
+    border-color:gray;
+    color:black;
+    cursor: not-allowed;
+}
+.navbar{
+    min-height:70px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 24px;
+    background-color:orange;
+}
+
+.nav-menu{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+   
+    background-color:orange;
+}
+
+.nav-branding{
+    font-size:2rem;
+}
+
+.info{
+    position: relative;
+    left:200px;
+    margin-top: 20%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.info_knj{
+    position: absolute;
+    margin-top: -45%;
+}
+
+.info ul{
+    padding:0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:3px;
+    width: 1000px;
+}
+
+.info li{
+    font-size: 20px;
+    background-color: transparent;
+  
+}
+
+.info_hr{
+    margin-top: -15px;
+    size:1;
+    
+    left:500px;
+}
+body output{
+    height:300px;
+}
+
+.info_slika{
+    position: absolute;
+    right:1150px;
+    height:600px;
+    display: grid;
+
+}
+
+
+.info_slika img{
+    max-height:480px;
+    max-width: 300px;
+    height:auto;
+    width: auto;
+}
+
+.info_slika li{
+    background-color: transparent;
+    position:relative;
+    height: 300px;
+    left:100px;
+}
+.info_slika li a{
+    color:orange;
+    text-decoration: underline;
+    position: relative;
+    left:10px;
+    font-size:25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.info_slika output{
+    position: relative;
+    margin-top: -70%;
+}
+
+.izlaz{
+    position: relative;
+    right:500px;
+    width:50px;
+    left:450px;
+    
+}
+
+
+.info input[type="text"]{
+    height: 100%;
+    width: 50%;
+    padding-left: 10px;
+    font-size: 17px;
+    outline: none;
+    border:none;
+    border-bottom: 2px solid silver;
+}
+.info input:focus{
+    height: 100%;
+    width: 50%;
+    padding-left: 10px;
+    font-size: 17px;
+    outline: none;
+    border:none;
+    border-bottom: 2px solid orange;
+}
+table{
+    border:3px solid orange;
+    width:100%;
+    display: grid;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+.knjiga_dana{
+    box-sizing: border-box;
+    border-color:black;
+    min-height:60px;
+    resize: none;
+
+}
+.knjiga_dana img{
+    height: 100px;
+    width:100px;
+    resize:none
+}
+.knjiga_dana li{
+    background-color: transparent;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.komentari{
+    position: relative;
+    overflow-wrap: break-word;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    right:5px;
+
+}
+.komentari-div{
+    position: absolute;
+   margin-top:-10%;
+   width:950px;
+   overflow-y: hidden;
+   overflow-x: hidden;
+}
+.komentari ul{
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+.komentari li{
+    overflow-wrap: break-word;
+    font-size: 18px;
+    background-color: transparent;
+}
+.komentari li strong{
+    color:black;
+}
+.info li strong{
+    color:orange;
+}
+.nema_kom{
+    position: relative;
+    left:350px;
+    font-weight: normal;
+    font-size: medium;
+    color:grey;
+    
+}
+.ocena{
+    
+    
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+.ocena mat-icon{
+    color:gold;
+}
+.ocena ul{
+    display: flex;
+    flex-direction: row;
+    justify-content:unset;
+    
+   
+}
+.ocena li strong{
+    color:black;
+}
+
+.ocena strong{
+    font-weight: normal;
+    color:#000000;
+}
+.kor{
+    position: relative;
+    margin-right: 10px;
+    color:black;
+    font-weight: normal;
+}
+.vreme{
+    position: relative;
+    color:black;
+    font-weight: normal;
+    left:300px;
+}
+
+.tekst{
+    position:relative;
+    color:black;
+    font-weight: normal;
+    display: inline-block;
+    word-break: break-all;
+    overflow-y: hidden;
+   
+}
+
+.link{
+    font-weight: normal;
+    position: relative;
+    left:750px;
+}
+
+.komentari-div .kom_dugme{
+    position: relative;
+    left:45vw
+}
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width:100vw;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: orange;
+}
+footer strong{
+    font-weight: normal;
+}

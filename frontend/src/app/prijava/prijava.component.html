@@ -1,0 +1,26 @@
+<body>
+<div class="box">
+    <h2>Prijava</h2>
+<div class="tekst">
+
+    <input  type="text" [(ngModel)]="korisnicko" id="korisnik" required="true"> 
+    <label for="korisnik">Korisnicko_ime</label>
+</div>
+<div class="tekst">
+    
+    <input type="password" [(ngModel)]="lozinka" id="lozinka" required="true">
+    <label for="lozinka">Lozinka</label>
+    <a (click)="promena()">Zaboravili ste lozinku?</a>
+</div>
+
+<br/>
+<button (click)="prijava()" class="dugme">Prijavi se</button>
+<br/>
+<br/>
+<br/>
+<output class="output_tekst">Niste registrovani?</output>
+<br/>
+<button (click)="registracija()" class="dugme">Registrujte se</button>
+<output style="color:red">{{message}}</output>
+</div>
+</body>

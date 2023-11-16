@@ -1,0 +1,183 @@
+
+<header>
+        
+           
+    <a href=""><img src="../assets/book.jpg"></a>
+    <nav class="navbar">
+    <output class="nav-branding">
+       
+        <output>Biblioteka grada Leskovca</output> 
+        
+    </output>
+
+  
+    <ul class="nav-menu">
+        
+        <li class="nav-item">
+            <button *ngIf="!ulogovan" (click)="prijava()" class="big">Prijavi se</button>
+            <button *ngIf="!ulogovan" (click)="prijava()" class="small"><i class="material-icons">login</i></button>
+
+        </li> 
+        <div class="logovan">
+        <li class="nav-item">
+            <a href="prijava" *ngIf="ulogovan">{{korisnik.ime}} {{korisnik.prezime}}</a>
+        </li>
+        </div>
+        <div class="logovan">
+        <li class="nav-item">
+            <a href="profil">
+            <img [src]="korisnik.slika" *ngIf="ulogovan && korisnik.slika" >
+            </a>
+        </li>
+        </div>
+        <div class="logovan">
+        <li class="nav-item">
+            <a href="profil">
+            <img src="../assets/profilna_slika.jpg" *ngIf="ulogovan && !korisnik.slika">
+            </a>
+        </li>
+        </div>
+        <div class="logovan">
+        <li class="nav-item">
+            <button *ngIf="ulogovan" (click)="odjava()" class="big">Odjavi se</button>
+            <button *ngIf="ulogovan" (click)="odjava()" class="small"><i class="material-icons">logout</i></button>
+
+        </li>
+        </div>
+    </ul>
+</nav>
+</header>
+<div *ngIf="ulogovan" style="width:100vw; overflow-x:hidden;">
+    <div>
+   <a (click)="koris()"><strong style=" font-weight: normal; text-decoration: underline;">Spisak korisnika:  
+</strong></a>
+<a (click)="knjig()"><strong style=" position:relative; font-weight: normal; left:20px; text-decoration: underline;">   Spisak knjiga:</strong></a>
+<div class="akcije">
+<a (click)="dodaj()" *ngIf="prikaziKor"><strong  class=" big">Dodaj korisnika</strong></a>
+<a (click)="dodaj()" *ngIf="prikaziKor"><strong  class=" small"><i class="material-icons-outlined">add_reaction</i></strong></a>
+
+<a (click)="brojDana()" *ngIf="prikaziKor" class="big"><strong >Na koliko dana sme da se produzi?</strong></a>
+<a (click)="brojDana()" *ngIf="prikaziKor" class="small"><strong ><i class="material-icons-outlined">more_time</i></strong></a>
+
+<a (click)="dodaj()" *ngIf="prikaziKnj" class="big"><strong >Dodaj knjigu</strong></a>
+<a (click)="dodaj()" *ngIf="prikaziKnj" class="small"><strong ><i class="material-icons-outlined">bookmark_add</i></strong></a>
+<a (click)="spisakReg()" class="big" ><strong>Zahtevi za registracijom</strong></a>
+<a (click)="spisakReg()" class="small"><strong ><i class="material-icons">list_alt</i></strong></a>
+</div>
+</div>
+    <hr>
+    <hr>
+    <ul *ngFor="let k of korisnici" >
+        <div class="knjiga">
+        <div>
+        <img [src]=k.slika *ngIf="k.slika && prikaziKor">
+        <img src="../assets/profilna_slika.jpg" *ngIf="!k.slika && prikaziKor">
+        </div>
+        <div>
+        <li *ngIf="prikaziKor">
+            Korisnicko ime:{{k.kor_ime}}
+        </li>
+        <li *ngIf="prikaziKor">
+            Ime i prezime:{{k.ime}} {{k.prezime}}
+        </li>
+        <li *ngIf="prikaziKor">Adresa:{{k.adresa}}</li>
+        <li *ngIf="prikaziKor">Kontakt telefon:{{k.telefon}}</li>
+        <li *ngIf="prikaziKor">E-mail:{{k.mejl}}</li>
+        <li *ngIf="prikaziKor">Tip korisnika:{{k.tip}}
+        </li>
+        <li *ngIf="prikaziKor"  class="dugmici">
+            <button *ngIf="!k.blokiran" style="position:relative;margin-right:5px ;" (click)="blokiraj(k.kor_ime)" class="big">Blokiraj</button>
+            <button *ngIf="!k.blokiran" style="position:relative;margin-right:5px ;" (click)="blokiraj(k.kor_ime)" class="small"><i class="material-icons">block</i></button>
+
+            <button *ngIf="k.blokiran" style="position:relative;margin-right:5px ;" (click)="odblokiraj(k.kor_ime)" class="big">Odblokiraj</button>
+            <button *ngIf="k.blokiran" style="position:relative;margin-right:5px ;" (click)="odblokiraj(k.kor_ime)" class="small"><i class="material-icons-outlined">do_disturb_off</i></button>
+
+            <button *ngIf="k.tip=='citalac'" style="position:relative;margin-right:5px ;" (click)="podigni(k.kor_ime)" class="big">Podigni privilegije</button>
+            <button *ngIf="k.tip=='citalac'" style="position:relative;margin-right:5px ;" (click)="podigni(k.kor_ime)" class="small"><i class="material-icons">arrow_upward</i></button>
+
+            <button *ngIf="k.tip=='moderator'" style="position:relative;margin-right:5px ;" (click)="spusti(k.kor_ime)" class="big">Spusti privilegije</button>
+            <button *ngIf="k.tip=='moderator'" style="position:relative;margin-right:5px ;" (click)="spusti(k.kor_ime)" class="small"><i class="material-icons">arrow_downward</i></button>
+
+            <button style="position:relative;margin-right:5px ;" (click)="azuriraj(k)" class="big">Azuriraj korisnika</button>
+            <button style="position:relative;margin-right:5px ;" (click)="azuriraj(k)" class="small"><i class="material-icons">update</i></button>
+
+            <button (click)="brisi(k.kor_ime)" [disabled]="k.zaduzen" style="position:relative;margin-right:5px ;" class="big">Izbrisi korisnika</button>
+            <button (click)="brisi(k.kor_ime)" [disabled]="k.zaduzen" style="position:relative;margin-right:5px ;" class="small"><i class="material-icons">delete</i></button>
+
+            <button (click)="brojDanaZad(k.kor_ime)" class="big vreme">Dani za zaduzenje knjige</button>
+            <button  (click)="brojDanaZad(k.kor_ime)" class="small vreme"><i class="material-icons">chrome_reader_mode</i></button>
+
+        </li>
+    </div>
+
+     </div>  
+     <hr *ngIf="prikaziKor">
+    <hr *ngIf="prikaziKor">
+    </ul>
+
+    <ul *ngFor="let k of knjige" >
+        <div class="knjiga">
+        <div>
+        <img [src]=k.slika *ngIf="k.slika && prikaziKnj">
+        <img src="../assets/profilna_slika.jpg" *ngIf="!k.slika && prikaziKnj">
+        </div>
+        <div>
+        <li *ngIf="prikaziKnj">
+            Naziv:{{k.naziv}}
+        </li>
+        <li *ngIf="prikaziKnj">
+           Autor:{{k.autor}}
+        </li>
+        <li *ngIf="prikaziKnj">Zanr:{{k.zanr}}</li>
+        <li *ngIf="prikaziKnj">Izdavac:{{k.izdavac}}</li>
+        <li *ngIf="prikaziKnj">Godina izdanja:{{k.godina}}</li>
+        <li *ngIf="prikaziKnj">Jezik:{{k.jezik}}</li>
+        <li *ngIf="prikaziKnj"  class="knjiga-dugmici">
+            
+            <button style="position:relative;margin-right:5px ;" (click)="azuriraj(k)" class="big">Azuriraj knjigu</button>
+            <button style="position:relative;margin-right:5px ;" (click)="azuriraj(k)" class="small"><i class="material-icons">update</i></button>
+
+            <button (click)="brisi(k.id)" [disabled]="k.zaduzena" class="big">Izbrisi knjigu</button>
+            <button (click)="brisi(k.id)" [disabled]="k.zaduzena" class="small"><i class="material-icons">delete</i></button>
+
+        </li>
+    </div>
+    </div>
+    <hr *ngIf="prikaziKnj">
+    <hr *ngIf="prikaziKnj">
+    </ul>
+    <ul *ngFor="let z of zahtevi" >
+        <div class="knjiga">
+        <div>
+        <img [src]=z.slika *ngIf="z.slika && prikaziReg">
+        <img src="../assets/profilna_slika.jpg" *ngIf="!z.slika && prikaziReg">
+        </div>
+        <div>
+        <li *ngIf="prikaziReg">
+            Korisnicko ime:{{z.kor_ime}}
+        </li>
+        <li *ngIf="prikaziReg">
+            Ime i prezime:{{z.ime}} {{z.prezime}}
+        </li>
+        <li *ngIf="prikaziReg">Adresa:{{z.adresa}}</li>
+        <li *ngIf="prikaziReg">Kontakt telefon:{{z.telefon}}</li>
+        <li *ngIf="prikaziReg">E-mail:{{z.mejl}}</li>
+        <li *ngIf="prikaziReg">Tip korisnika:{{z.tip}}
+        </li>
+        <li *ngIf="prikaziReg" style="position:fixed;left:-300px;margin-top: -2.5%;">
+            <button style="position:relative;margin-right:5px ;" (click)="odbij(z.kor_ime)">Odbij zahtev</button>
+            <button (click)="prihvati(z)">Prihvati zahtev</button>
+        </li>
+    </div>
+    
+     </div>  
+     <hr *ngIf="prikaziReg">
+    <hr *ngIf="prikaziReg">
+    </ul>
+    <footer>
+        <strong>copyright &copy;2022</strong>
+        <strong> Biblioteka grada Leskovca </strong>
+    </footer>
+    
+</div>
+

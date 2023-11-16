@@ -1,0 +1,128 @@
+<header>
+        
+           
+    <a href=""><img src="../assets/book.jpg"></a>
+    <nav class="navbar">
+    <output class="nav-branding">
+       
+        <output>Biblioteka grada Leskovca</output> 
+        
+    </output>
+    
+    <ul class="nav-menu">
+        <li class="nav-item">
+            <a href="prijava">{{korisnik.ime}} {{korisnik.prezime}}</a>
+        </li>
+        <li class="nav-item">
+            <a href="profil">
+            <img [src]="korisnik.slika" *ngIf="korisnik.slika" >    
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="profil">
+            <img src="../assets/profilna_slika.jpg" *ngIf="!korisnik.slika">
+            </a>
+        </li>
+        <li class="nav-item">
+            <button (click)="odjava()" class="big">Odjavi se</button>
+            <button (click)="odjava()" class="small" ><i class="material-icons">logout</i></button>
+
+        </li>
+    </ul>
+</nav>
+</header>
+
+<body>
+<div class="info">
+<ul>
+    <li><strong style="color:black; font-size: 25px; text-decoration: underline;">---Informacije o korisniku---</strong></li>
+    
+    <li><strong>Korisnicko_ime:</strong><strong *ngIf="!editInf" style="font-weight:normal; font-size: 20px; color:black">{{korisnik.kor_ime}}</strong>
+        <input type="text" *ngIf="editInf" [(ngModel)]="korisnicko_ime">
+    </li>
+    <br>
+    <li><strong>Ime:</strong><strong *ngIf="!editInf" style="font-weight:normal; font-size: 20px; color:black">{{korisnik.ime}}</strong>
+        <input type="text" *ngIf="editInf" [(ngModel)]="ime"></li>
+    <br>
+    <li><strong>Prezime:</strong><strong *ngIf="!editInf" style="font-weight:normal; font-size: 20px; color:black">{{korisnik.prezime}}</strong>
+        <input type="text" *ngIf="editInf" [(ngModel)]="prezime"></li>
+        
+    <br>
+    <li><strong>Adresa:</strong><strong *ngIf="!editInf" style="font-weight:normal; font-size: 20px; color:black">{{korisnik.adresa}}</strong>
+        <input type="text" *ngIf="editInf" [(ngModel)]="adresa"></li>
+    <br>
+    <li><strong>Kontakt telefon:</strong><strong *ngIf="!editInf" style="font-weight:normal; font-size: 20px; color:black">{{korisnik.telefon}}</strong>
+        <input type="text" *ngIf="editInf" [(ngModel)]="telefon"></li>
+    <br>
+    <li><strong>E-mail:</strong><strong *ngIf="!editInf" style="font-weight:normal; font-size: 20px; color:black">{{korisnik.mejl}}</strong>
+        <input type="text" *ngIf="editInf" [(ngModel)]="email"></li>
+       <li class="charts">
+        <div width="100px"  class="chart1"> <canvas baseChart
+            [data]="lineData"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [legend]="lineChartLegend"
+            [type]="lineChartType"
+            [plugins]="lineChartPlugins"
+            style="width:200px">
+            
+          </canvas></div>
+          <div width="400px"  class="chart2"> <canvas baseChart
+            [data]="lineData2"
+            [datasets]="lineChartData2"
+            [labels]="lineChartLabels2"
+            [options]="lineChartOptions2"
+            [legend]="lineChartLegend2"
+            [type]="lineChartType2"
+            [plugins]="lineChartPlugins2"
+            style="width:400px">
+            
+          </canvas></div>
+       </li>
+</ul>
+
+</div>
+
+<div class="info_slika">
+    <button *ngIf="editSlika || editInf" class="izlaz" (click)="gotovo()">x</button>
+    <img [src]="korisnik.slika" *ngIf="korisnik.slika">
+    <img src="../assets/profilna_slika.jpg" *ngIf="!korisnik.slika">
+    <ul>
+
+        <li style="position:relative; left:50px">
+            <button *ngIf="!editSlika" (click)="edit()">Edit picture</button>
+            <input type="file" *ngIf="editSlika" (change)="onSelectFile($event)">
+            <button style="width:110px; margin-left: 5px;" *ngIf="korisnik.tip=='moderator'" (click)="dodaj()">Dodaj novu knjigu</button>
+            <button style="width:150px; margin-left: 5px;" *ngIf="korisnik.tip=='citalac'" (click)="dodaj()">Zahtev za novu knjigu</button>
+            
+        </li>
+        <br>
+        <li style="position:relative; left:50px">
+            <a (click)="editInfo()">Edit info</a>
+        </li>
+        <br>
+        <li style="position:relative; left:50px">
+            <a style="position: relative;" (click)="promena()">Promena lozinke</a>
+        </li>
+        <br>
+        <li style="position:relative; left:50px">
+            <a style="position: relative;" (click)="pregled()" href="pregledZaduzenih">Pregled zaduzenih knjiga</a>
+        </li>
+        <br>
+        <li style="position:relative; left:50px">
+            <a style="position: relative;" (click)="pregled()" href="istorijaZaduzenja">Istorija zaduzenja</a>
+        </li>
+        <br>
+        <li style="position:relative; left:50px">
+            <a style="position: relative;" (click)="pregled()" href="knjigaZahtevi" *ngIf="korisnik.tip=='moderator'">Zahtevi za dodavanje knjige</a>
+        </li>
+
+       
+    </ul>
+</div>
+<footer>
+    <strong>copyright &copy;2022</strong>
+    <strong> Biblioteka grada Leskovca </strong>
+</footer>
+</body>

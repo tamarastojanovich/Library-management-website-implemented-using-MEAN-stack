@@ -1,0 +1,58 @@
+<header>
+        
+           
+    <a href=""><img src="../assets/book.jpg"></a>
+    <nav class="navbar">
+    <output class="nav-branding">
+       
+        <output>Biblioteka grada Leskovca</output> 
+        
+    </output>
+    
+    <ul class="nav-menu">
+        <div class="pretraga">
+            <input type="text" [(ngModel)]="pretraga" placeholder="Pretraga">
+            <button (click)="search()" class="search-button big">Pretraga</button>
+            <button (click)="search()" class="search-button small" ><i class="material-icons">search</i></button>
+            </div>
+        
+        <li class="nav-item">
+            <button (click)="prijava()" class="big">Prijavi se</button>
+            <button  (click)="prijava()" class="small"><i class="material-icons">login</i></button>
+        </li> 
+        <li class="nav-item">
+            <button  (click)="registracija()" class="big">Registracija</button>
+            <button (click)="prijava()" class="small"><i class="material-icons">add_reaction</i></button>
+        </li>
+    </ul>
+</nav>
+</header>
+<div >
+<strong style="text-decoration: underline; font-weight: normal;">Rezultati pretrage:</strong>
+<ul *ngFor="let k of knjige">
+    <div class="knjiga">
+    <div>
+    <img [src]=k.slika>
+    </div>
+    <div>
+    <li>
+        Naziv:{{k.naziv}}
+    </li>
+    <li>
+        Autor/ri:{{k.autor}}
+    </li>
+    <li>Zanr:{{k.zanr}}</li>
+    <li>Izdavac:{{k.izdavac}}</li>
+    <li>Godina izdanja:{{k.godina}}</li>
+    <li>Jezik:{{k.jezik}}</li>
+</div>
+
+ </div>  
+ <hr>
+<hr>
+</ul>
+<footer>
+    <strong>copyright &copy;2022</strong>
+    <strong> Biblioteka grada Leskovca </strong>
+</footer>
+</div>

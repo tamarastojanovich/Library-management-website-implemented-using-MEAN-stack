@@ -1,0 +1,34 @@
+<header>
+    <link 
+    href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+    rel="stylesheet"  type='text/css'>
+</header>
+<body>
+<div class="box">
+    <h2>Dodavanje komentara</h2>
+    <br>
+    <div class="ocena">
+    <output>Ocenite knjigu:</output>
+    <div class="rating">
+        <input type="radio" name="star" id="star1" [value]="10" [(ngModel)]="ocena"> <label for="star1"></label>
+        <input type="radio" name="star" id="star2" [value]="9" [(ngModel)]="ocena"><label for="star2"></label>
+        <input type="radio" name="star" id="star3" [value]="8" [(ngModel)]="ocena"><label for="star3"></label>
+        <input type="radio" name="star" id="star4" [value]="7"  [(ngModel)]="ocena"><label for="star4"></label>
+        <input type="radio" name="star" id="star5" [value]="6"  [(ngModel)]="ocena"><label for="star5"></label>
+        <input type="radio" name="star" id="star6" [value]="5" [(ngModel)]="ocena"><label for="star6"></label>
+        <input type="radio" name="star" id="star7" [value]="4"  [(ngModel)]="ocena"><label for="star7"></label>
+        <input type="radio" name="star" id="star8" [value]="3"  [(ngModel)]="ocena"><label for="star8"></label>
+        <input type="radio" name="star" id="star9" [value]="2"  [(ngModel)]="ocena"><label for="star9"></label>
+        <input type="radio" name="star" id="star10" [value]="1"  [(ngModel)]="ocena"><label for="star10"></label>
+    </div>
+    </div>
+<div class="tekst">
+   <textarea class="position:fixed;left:500px;" placeholder="Ovde napisite svoj komentar" maxlength="1000" [(ngModel)]="tekst" rows="10" cols="30"></textarea>
+</div>
+<div class="tekst">
+    
+ </div>
+{{ocena}}
+<button class="dugme" (click)="dodaj()">Komentarisi</button>
+</div>
+</body>

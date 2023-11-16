@@ -1,0 +1,193 @@
+<header>
+        
+    <link 
+    href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+    rel="stylesheet"  type='text/css'>
+   
+    <a href=""><img src="../assets/book.jpg"></a>
+    <nav class="navbar">
+    <output class="nav-branding">
+       
+        <output>Biblioteka grada Leskovca</output> 
+        
+    </output>
+    
+    <ul class="nav-menu">
+        <li> 
+            Pretraga:<input type="text" >
+            <button  class="search-button">Pretraga</button>
+        </li>
+        <li class="nav-item">
+            <a href="prijava">{{korisnik.ime}} {{korisnik.prezime}}</a>
+        </li>
+        <li class="nav-item">
+            <a href="profil">
+            <img [src]="korisnik.slika" *ngIf="korisnik.slika" >    
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="profil">
+            <img src="../assets/profilna_slika.jpg" *ngIf="!korisnik.slika">
+            </a>
+        </li>
+        <li class="nav-item">
+            <button (click)="odjava()" >Odjavi se</button>
+        </li>
+    </ul>
+</nav>
+</header>
+
+<body>
+<div class="info">
+    <hr class="info_hr">
+    
+<ul>
+    <div class="info_knj">
+    <li><strong style="color:black; font-size: 30px; text-decoration: underline;">---Informacije o knjizi---</strong></li>
+    <br>
+    <li><strong>Naziv:</strong><strong  style="font-weight:normal; font-size: 20px; color:black" *ngIf="!izmena">{{knjiga.naziv}}</strong>
+        <input type="text" id="naziv"  [(ngModel)]="naziv" *ngIf="izmena">
+      
+    </li>
+    <br>
+    <li><strong>Autor/ri</strong><strong  style="font-weight:normal; font-size: 20px; color:black" *ngIf="!izmena">{{knjiga.autor}}</strong>
+        <input type="text" id="autor"  [(ngModel)]="autori" *ngIf="izmena">
+       </li>
+    <br>
+    <li><strong>Zanr:</strong><strong  style="font-weight:normal; font-size: 20px; color:black" *ngIf="!izmena">{{knjiga.zanr}}</strong>
+        <input type="text" id="zanr"  [(ngModel)]="zanr" *ngIf="izmena">
+        </li>
+    <br>
+    <li><strong>Izdavac:</strong><strong  style="font-weight:normal; font-size: 20px; color:black"*ngIf="!izmena">{{knjiga.izdavac}}</strong>
+        <input type="text" id="izdavac"  [(ngModel)]="izdavac" *ngIf="izmena">
+       </li>
+    <br>
+    <li><strong>Godina izdanja:</strong><strong  style="font-weight:normal; font-size: 20px; color:black"*ngIf="!izmena">{{knjiga.godina}}.</strong>
+        <input type="text" id="godina" [(ngModel)]="godina" *ngIf="izmena">
+        </li>
+    <br>
+    <li><strong>Jezik:</strong><strong  style="font-weight:normal; font-size: 20px; color:black" *ngIf="!izmena">{{knjiga.jezik}}</strong>
+        <input type="text" id="jezik"  [(ngModel)]="jezik" *ngIf="izmena">
+        </li>
+        <br>
+        <li><strong>Na stanju:</strong><strong  style="font-weight:normal; font-size: 20px; color:black" *ngIf="!izmena">{{knjiga.stanje}}</strong>
+            <input type="text" id="stanje"  [(ngModel)]="stanje" *ngIf="izmena">
+        </li>
+    </div>
+    <br>
+    <div>
+        <div class="komentari-div">
+                <strong>Komentari<button class="kom_dugme" (click)="komentarisi()" [disabled]="komentarisao || !uzimao">Dodaj komentar</button></strong> 
+                   <hr>
+                <strong class="nema_kom" *ngIf="komentari.length==0">Nema komentara</strong>
+                <ul class="komentari" *ngFor="let k of komentari">
+                    <hr>
+                <li class="ocena"><strong class="kor">
+                        Korisnik:{{k.kor}} </strong>
+                        
+                        Ocena:
+                        <mat-icon *ngIf="k.ocena==0">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=0.5 && k.ocena>0">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>0.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=1">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=1.5 && k.ocena>1">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>1.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=2">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=2.5 && k.ocena>2">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>2.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=3">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=3.5 && k.ocena>3">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>3.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=4">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=4.5 && k.ocena>4">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>4.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=5">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=5.5 && k.ocena>5">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>5.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=6">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=6.5 && k.ocena>6">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>6.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=7">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=7.5 && k.ocena>7">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>7.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=8">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=8.5 && k.ocena>8">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>8.5">star</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=9">star_outline</mat-icon>
+                        <mat-icon *ngIf="k.ocena<=9.5 && k.ocena>9">star_half</mat-icon>
+                        <mat-icon *ngIf="k.ocena>9.5">star</mat-icon>
+                        <strong class="vreme">{{k.vreme}}</strong>
+                                      
+                           </li>
+                           <li class="tekst">
+                            <p >{{k.tekst}}</p>
+                           </li>
+                          <li class="link">
+                            <strong ><a (click)="azuriraj(k)" *ngIf="!k.azuriran">Azuriraj komentar</a> </strong>
+                            <strong  *ngIf="k.azuriran" style="color:grey;">Azuriraj komentar</strong>
+                          </li>
+                           
+            </ul>
+            
+          </div>
+          </div>
+          </ul>
+</div>
+
+
+
+
+<div class="info_slika">
+   
+    <img [src]=knjiga.slika >
+    <ul style="color:gold;left:30px;position: relative;" >
+        <mat-icon *ngIf="knjiga.ocena==0">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=0.5 && knjiga.ocena>0">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>0.5" >star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=1">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=1.5 && knjiga.ocena>1">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>1.5">star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=2">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=2.5 && knjiga.ocena>2">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>2.5">star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=3">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=3.5 && knjiga.ocena>3">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>3.5">star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=4">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=4.5 && knjiga.ocena>4">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>4.5">star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=5">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=5.5 && knjiga.ocena>5">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>5.5">star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=6">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=6.5 && knjiga.ocena>6">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>6.5">star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=7">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=7.5 && knjiga.ocena>7">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>7.5">star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=8">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=8.5 && knjiga.ocena>8">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>8.5">star</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=9">star_outline</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena<=9.5 && knjiga.ocena>9">star_half</mat-icon>
+        <mat-icon *ngIf="knjiga.ocena>9.5">star</mat-icon>
+    </ul>
+   
+   
+    <ul>
+        <br><li style="display:grid"><button [disabled]="vecUzeo || knjiga.stanje==0 || neMoze" (click)="zaduzi()" *ngIf="!izmena">Zaduzi</button>
+            <button style="position:relative; margin-top: -25%;" [disabled]="vecUzeo || knjiga.stanje!=0" (click)="rezervisi()" *ngIf="!izmena">Rezervisi</button>
+            <button style="position:relative; margin-top: -40%;" *ngIf="korisnik.tip=='moderator' && !izmena" (click)="menjaj()">Azuriraj info</button>
+            <input type="file" *ngIf="izmena">
+            <button style="position:relative; margin-top: -40%;" *ngIf="korisnik.tip=='moderator' && izmena" (click)="izmeni()">Izmeni</button>
+        </li>
+      
+    </ul>
+    </div>
+    <output style="color:red;position:relative; margin-top: -220%;">{{poruka}}</output>
+
+</body>
+<footer>
+    <strong>copyright &copy;2022</strong>
+    <strong> Biblioteka grada Leskovca </strong>
+</footer>

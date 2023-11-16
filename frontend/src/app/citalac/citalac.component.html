@@ -1,0 +1,203 @@
+<header>
+        <link rel="stylesheet" href="citalac.component.css">
+           
+    <a href="" class="knjiga_ikona"><img src="../assets/book.jpg"></a>
+
+    <nav class="navbar">
+    <output class="nav-branding">
+        
+        <output>Biblioteka grada Leskovca</output> 
+        
+    </output>
+    
+    <ul class="nav-menu">
+        <div class="pretraga-div">   
+        <li> 
+            
+            <input type="text" [(ngModel)]="pretra" (focus)="focused()" placeholder="Pretraga" >
+            <button (click)="search()" class="search-button big">Pretraga</button>
+            <button (click)="search()" class="search-button small" ><mat-icon>search</mat-icon></button>
+        </li>
+        </div>
+        <div>
+        <li class="nav-item">
+            <a href="prijava">{{korisnik.ime}} {{korisnik.prezime}}</a>
+        </li>
+        </div>
+        <div>
+            <li class="nav-item">
+            <a href="profil">
+            <img [src]="korisnik.slika" *ngIf="korisnik.slika" >    
+            </a>
+            </li>
+            </div>
+        <div>
+        <li class="nav-item">
+            <a href="profil">
+            <img src="../assets/profilna_slika.jpg" *ngIf="!korisnik.slika">
+            </a>
+        </li>
+        </div>
+        <div>
+        <li class="nav-item">
+            <button (click)="odjava()" class="big">Odjavi se</button>
+            <button (click)="odjava()" class="small"><i class="material-icons">logout</i></button>
+        </li>
+        </div>
+    </ul>
+    
+</nav>
+</header>
+
+<div>
+<div *ngIf="searchFocus" class="filtri" >
+    <div class="zanr" style="color:white" >
+    <mat-form-field>
+        <mat-placeholder style="color:white">Zanr</mat-placeholder>
+        <mat-select multiple [(ngModel)]="zanr" style="color:white">
+            <mat-option *ngFor="let z of zanrovi" [value]="z" class="mat-select">{{z}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div class="godina">
+Godina izdanja:
+od:<input type="text" [(ngModel)]="od">
+do:<input type="text" [(ngModel)]="do">
+</div>
+<div class="izdavac">
+<select [(ngModel)]="izdavac">
+    <option value="null">Izdavac</option>
+    <option *ngFor="let i of izdavaci" [value]="i">{{i}}</option>
+</select>
+<button (click)="focusout()">Primeni</button>
+</div>
+
+</div>
+</div>
+<div id="sidebar" style="display:none">
+    <div class="toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+</div>
+</div>
+<body>
+<table class="dan">
+<tr>
+    <td><div class="knjiga">
+    <output>***  KNJIGA DANA  ***</output>
+</div></td></tr>
+<hr>
+<tr><div class="knjiga_dana">
+    <img [src]="knjiga.slika">
+    <ul>
+        <li><strong> Naziv:</strong>{{knjiga.naziv}}</li>
+        <li >
+            <strong>Autor/ri:{{knjiga.autor}}</strong>
+        </li>
+        <li><strong>Ocena:</strong>{{knjiga.ocena}}</li>
+    </ul>
+</div>
+</tr>
+</table>
+</body>
+<div>
+<div class="scroll-div">
+    <strong style="color:seashell; font-weight:normal">**OBAVESTENJA**</strong>
+    <hr>
+    <hr>
+    <div class="scroll-object">
+        <ul *ngFor="let o of obavestenja">
+            <li *ngIf="o!='BLOKIRANI STE OD STRANE ADMINA'" style="color:seashell">{{o}}</li>
+            <li *ngIf="o=='BLOKIRANI STE OD STRANE ADMINA'" style="color:orange">{{o}}</li>
+            <hr>
+            <hr>
+        </ul>
+    </div>
+</div>
+</div>
+<div class="side">
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"> </span>
+        <span class="bar"> </span>
+
+   </div>
+    <div class="content">
+        <ul>
+            <li><table class="tabelica">
+                <tr>
+                    <td><div class="knjiga">
+                    <output>***  KNJIGA DANA  ***</output>
+                </div></td></tr>
+                <hr>
+                <tr><div class="knjiga_dana">
+                    <img [src]="knjiga.slika">
+                    <ul>
+                        <li><strong> Naziv:</strong>{{knjiga.naziv}}</li>
+                        <li >
+                            <strong>Autor/ri:{{knjiga.autor}}</strong>
+                        </li>
+                        <li><strong>Ocena:</strong>{{knjiga.ocena}}</li>
+                    </ul>
+                </div>
+                </tr>
+                </table></li>
+            <li><div>
+                <div class="scroll-div2">
+                    <strong style="color:seashell; font-weight:normal">**OBAVESTENJA**</strong>
+                    <hr>
+                    <hr>
+                    <div class="scroll-object">
+                        <ul *ngFor="let o of obavestenja">
+                            <li *ngIf="o!='BLOKIRANI STE OD STRANE ADMINA'" style="color:seashell">{{o}}</li>
+                            <li *ngIf="o=='BLOKIRANI STE OD STRANE ADMINA'" style="color:orange">{{o}}</li>
+                            <hr>
+                            <hr>
+                        </ul>
+                    </div>
+                </div>
+                </div></li>
+        </ul>
+    </div>
+    </div>
+<div style="width:100vw;">
+<div class="pretraga">
+    <hr width="1" size="750">
+    <div class="pretraga_knjiga">
+    <strong style="text-decoration: underline; font-weight: normal;">Rezultati pretrage:</strong>
+    
+    <ul *ngFor="let k of knjige">
+        <div class="knjiga">
+        <div>
+        <a href="knjiga" (click)="knjigaStr(k)"><img [src]=k.slika style="float:right" ></a>
+        </div>
+        <div>
+        <li>
+            Naziv:{{k.naziv}}
+        </li>
+        <li >
+            Autor/ri:{{k.autor}}
+        </li>
+        <li >Zanr:{{k.zanr}}</li>
+        <li>Izdavac:{{k.izdavac}}</li>
+        <li>Godina izdanja:{{k.godina}}</li>
+        <li>Jezik:{{k.jezik}}</li>
+        
+    </div>
+   
+     </div>  
+     <hr class="debljina">
+     <hr class="debljina">
+    </ul>
+    </div>
+    </div>
+    <div class="footer-wrapper">
+    <footer>
+        <strong>copyright &copy;2022</strong>
+        <strong> Biblioteka grada Leskovca </strong>
+    </footer>
+    </div>
+    </div>
+    
+    

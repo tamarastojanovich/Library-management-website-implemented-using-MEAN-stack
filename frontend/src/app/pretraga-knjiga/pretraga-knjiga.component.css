@@ -1,0 +1,263 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+
+
+@media all and (min-width:450px){
+    .small{
+        display: none;
+    }
+}
+@media all and (max-width:450px){    
+    
+
+
+    .dan{
+        display: none;
+    }
+
+    
+    output{
+        display: none;
+    }
+    .big{
+        display: none;
+    }
+    .small{
+     visibility:visible;
+    }
+    .nav-menu button{
+        position: relative;
+        width:30px;
+        font-size: 4px;
+        height:25px;
+        right:30px;
+        background-color: navy;
+        border-color:navy;
+        color:white;
+        border-radius: 4px;
+    }
+
+        
+header .pretraga{
+    display:flex;
+    position: relative;
+    margin-right:120px;
+    left:10px;
+   
+    justify-content: space-between;
+    gap:9px;
+    
+}
+header .pretraga input{
+  
+    width:60px;
+    right:50px;
+}
+ .pretraga .search-button{
+    position: relative;
+   
+    right:-10px;
+}
+
+header div img{
+    height:60px;
+}
+
+
+
+header .logovan{
+    position: relative;
+    right:120px;
+}
+
+    body .slider{
+       
+        position: relative;
+      
+        height:80vh;
+        width:100vw;
+        margin-left: 20%;
+        border-radius: 10px;
+        margin-bottom:-30%;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    .slider .slides .slide img{
+        width:80vw;
+       margin-left: -50%;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    div .filtri{
+        position: relative;
+        min-height:70px;
+        display:grid;
+        align-items: center;
+        gap:5px;
+        width:75vw;
+        padding:0 24px;
+        left:20.13vw;
+        background-color:navy;
+        
+    }
+    
+    div .filtri button{
+        position: relative;
+        background-color: orange;
+        left:5.55vw;
+    }
+    
+    div .filtri .zanr{
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+        color:white;
+    }
+    
+    div .filtri .izdavac{
+        position: relative;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 90px;
+        width:30px;
+        color:white;
+        left:-20px;
+    }
+    div .filtri .izdavac select{
+        width:100px;
+    }
+    div .filtri .godina{
+        position: relative;
+        display: inline-block;
+        align-items: center;
+        color:white;
+        justify-content: space-between;
+        gap:unset;
+        left:-20px;
+    }
+    
+    div .filtri .godina input{
+        position: relative;
+        width:40px;
+        
+    }
+    
+}
+
+
+
+
+h3{
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    display: flex;
+    font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+body{
+    position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:1000px;
+    background-color: transparent;
+}
+header{
+    background-color:orange;
+
+}
+
+li{
+    list-style: none;
+    
+}
+
+img{
+    height:70px;
+    float:left;
+    align-items: center;
+    display:flex;
+    cursor: pointer;
+    
+}
+
+.tabela{
+    position: absolute;
+    box-sizing: border-box;
+    border-color:black;
+    margin-top: 100px;
+    left:0;
+    top:0;
+}
+
+output{
+    float:right;
+}
+
+button{
+    width:100px;
+    height:30px;
+    background-color: navy;
+    border-color:navy;
+    color:white;
+}
+
+
+.navbar{
+    min-height:70px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 24px;
+    background-color:orange;
+}
+
+.nav-menu{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+    background-color:orange;
+}
+
+.nav-branding{
+    font-size:2rem;
+}
+
+.knjiga img{
+    height:100px;
+}
+.knjiga{
+    position: relative;
+    display: flex;
+    left:5px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width:100vw;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: orange;
+}
+footer strong{
+    font-weight: normal;
+}

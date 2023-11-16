@@ -1,0 +1,85 @@
+<header>
+        
+           
+    <a href=""><img src="../assets/book.jpg"></a>
+    <nav class="navbar">
+    <output class="nav-branding">
+       
+        <output>Biblioteka grada Leskovca</output> 
+        
+    </output>
+    
+    <ul class="nav-menu">
+        
+        <div class="logovan">
+        <li class="nav-item">
+            <a href="prijava">{{korisnik.ime}} {{korisnik.prezime}}</a>
+        </li>
+        </div>
+        <div class="logovan">
+            <li class="nav-item">
+            <a href="profil">
+            <img [src]="korisnik.slika" *ngIf="korisnik.slika" >    
+            </a>
+            </li>
+            </div>
+        <div class="logovan">
+        <li class="nav-item">
+            <a href="profil">
+            <img src="../assets/profilna_slika.jpg" *ngIf="!korisnik.slika">
+            </a>
+        </li>
+        </div>
+        <div class="logovan">
+        <li class="nav-item">
+            <button (click)="odjava()" class="big">Odjavi se</button>
+            <button (click)="odjava()" class="small"><i class="material-icons">logout</i></button>
+
+        </li>
+        </div>
+    </ul>
+</nav>
+</header>
+<div >
+    <strong style=" font-weight: normal;">Istorija zaduzivanja:
+       
+    <strong class="sort">Sortiraj po: <select [(ngModel)]="param" (click)="sort()">
+        <option value="vracanje">Datum vracanja:</option>
+        <option value="naziv">Naziv</option>
+        <option value="autor">Autor/ri</option>
+        <option value="uzimanje">Datum uzimanja</option>
+    </select></strong>
+    
+</strong>
+    <hr>
+    <hr>
+    <ul *ngFor="let z of zaduzenja">
+        <div class="knjiga">
+        <div>
+        <img [src]=z.slika>
+        </div>
+        <div>
+        <li>
+            Naziv:{{z.naziv}}
+        </li>
+        <li>
+            Autor/ri:{{z.autor}}
+        </li>
+        <li>Datum zaduzivanja:{{z.datum}}</li>
+        <li>Datum vracanja:{{z.vracena}}</li>
+        <li>
+            <button (click)="pregled(z.id)" class="big">Informacije o knjizi</button>
+            <button (click)="pregled(z.id)" class="small"><i class="material-icons">info</i></button>
+
+        </li>
+    </div>
+    
+     </div>  
+     <hr>
+    <hr>
+    </ul>
+    <footer>
+        <strong>copyright &copy;2022</strong>
+        <strong> Biblioteka grada Leskovca </strong>
+    </footer>
+    </div>

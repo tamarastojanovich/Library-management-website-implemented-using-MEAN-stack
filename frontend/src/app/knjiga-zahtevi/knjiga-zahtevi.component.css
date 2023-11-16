@@ -1,0 +1,191 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+
+
+@media all and (min-width:450px){
+    .small{
+        display: none;
+    }
+}
+@media all and (max-width:450px){    
+    
+
+
+    .dan{
+        display: none;
+    }
+
+    
+    output{
+        display: none;
+    }
+    .big{
+        display: none;
+    }
+    .small{
+     visibility:visible;
+     left:1vw;
+    }
+    .nav-menu button{
+        position: relative;
+        width:30px;
+        font-size: 4px;
+        height:25px;
+        right:30px;
+        background-color: navy;
+        border-color:navy;
+        color:white;
+        border-radius: 4px;
+    }
+
+        
+
+header div img{
+    height:60px;
+}
+
+
+
+header .logovan{
+    position: relative;
+    left:20vw;
+}
+
+div ul .knjiga button{
+    position: relative;
+    left:45vw;
+    margin-top:0.5%;
+    width:25px;
+    
+}
+    
+   
+    
+}
+
+
+h3{
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    display: flex;
+    font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+body{
+    position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:1000px;
+    background-color: transparent;
+}
+header{
+    background-color:orange;
+
+}
+
+li{
+    list-style: none;
+    
+}
+
+img{
+    height:70px;
+    float:left;
+    align-items: center;
+    display:flex;
+    cursor: pointer;
+    
+}
+
+.tabela{
+    position: absolute;
+    box-sizing: border-box;
+    border-color:black;
+    margin-top: 100px;
+    left:0;
+    top:0;
+}
+
+output{
+    float:right;
+}
+
+button{
+    width:100px;
+    height:30px;
+    background-color: navy;
+    border-color:navy;
+    color:white;
+}
+
+
+.navbar{
+    min-height:70px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 24px;
+    background-color:orange;
+}
+
+.nav-menu{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+    background-color:orange;
+}
+
+.nav-branding{
+    font-size:2rem;
+}
+
+.knjiga img{
+    height:100px;
+}
+.knjiga{
+    position: relative;
+    display: flex;
+    
+}
+.knjiga button{
+    position: relative;
+    left:80vw;
+   
+    width:130px;
+    border-spacing: 2px;
+}
+.knjiga button:disabled{
+    position: fixed;
+    left:1500px;
+    background-color: gray;
+    border-color: gray;
+    color:white;
+    width:130px;
+    border-spacing: 2px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width:100vw;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: orange;
+}
+footer strong{
+    font-weight: normal;
+}

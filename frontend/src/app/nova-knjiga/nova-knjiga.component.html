@@ -1,0 +1,30 @@
+<div class="box">
+    <h2>Dodavanje nove knjige</h2>
+<div class="tekst">
+   <input type="text" id="naziv" required="true" [(ngModel)]="naziv"><br/>
+   <label for="naziv">Naziv knjige</label>
+</div>
+<div class="tekst">
+    <input type="text" id="autori" required="true" [(ngModel)]="autori"><br/>
+    <label for="autori">Autori(odvojiti zarezom)</label>
+ </div>
+ <div class="tekst">
+    <input type="text" id="zanr" required="true" [(ngModel)]="zanr"><br/>
+    <label for="zanr">Zanr(odvojiti zarezom)</label>
+ </div>
+ <div class="tekst">
+    <input type="text" id="izdavac" required="true" [(ngModel)]="izdavac"><br/>
+    <label for="izdavac">Izdavac</label>
+ </div>
+ <div class="tekst">
+    <input type="text" id="godina" required="true" [(ngModel)]="godina"><br/>
+    <label for="godina">Godina izdanja</label>
+ </div>
+ <div class="tekst">
+    <input type="text" id="jezik" required="true" [(ngModel)]="jezik"><br/>
+    <label for="jezik">Jezik na koji je pisana</label>
+ </div>
+Slika:<input type="file" [(ngModel)]="slika" (change)="onSelectFile($event)"><br/>
+    <br/>
+    <button (click)="dodaj()" class="dugme">Dodaj knjigu</button>
+    </div>

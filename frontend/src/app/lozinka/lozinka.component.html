@@ -1,0 +1,24 @@
+<body>
+    <div class="box">
+    <div class="tekst">
+    
+        <input  type="password" [(ngModel)]="staraLozinka" id="staraLozinka" required="true"> 
+        <label for="staraLozinka">Stara Lozinka</label>
+    </div>
+    <div class="tekst">
+        
+        <input type="password" [(ngModel)]="novaLozinka" id="novaLozinka" required="true" onkeyup="return validate()">
+        <label for="lozinka">Nova Lozinka</label>
+    </div>
+    <div class="tekst">
+        
+        <input type="password" [(ngModel)]="novaLozinka2" id="novaLozinka2" required="true">
+        <label for="lozinka">Nova Lozinka potvrda</label>
+    </div>
+    
+    <br/>
+    <button (click)="promena()" class="dugme">Promeni lozinku</button>
+    <output style="color:red">{{message}}</output>
+    </div>
+    </body>
+    

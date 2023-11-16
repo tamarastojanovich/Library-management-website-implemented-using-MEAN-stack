@@ -1,0 +1,101 @@
+body{
+    margin:0;
+    padding:0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    resize: none;
+    overflow:hidden;
+}
+
+.rating{
+    position: absolute;
+   
+    left:30%;
+    /*transform:translate(-50%,-50%);*/
+    transform: rotateY(180deg);
+    display:flex;
+}
+.rating input{
+    display:none;
+
+}
+
+.rating label{
+    display:block;
+    cursor:pointer;
+    width:15px;
+    background:#fff
+
+}
+
+.rating label:before{
+    content:'\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display:block;
+    color:#101010;
+}
+.rating label:after{
+    content:'\f005';
+    font-family: fontAwesome;
+    position: absolute;
+    display:block;
+    color:gold;
+    top:0;
+    width:50%;
+    opacity:0;
+    transition: .5s;
+  
+
+}
+
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after{
+    opacity:1;
+    width:50%;
+}
+
+.box{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:400px;
+    padding:30px;
+    background: white;
+    box-sizing: border-box;
+    transition: all 300ms ease-in-out;
+}
+
+.box h2{
+    position: relative;
+    margin: 0 0 20px;
+    padding: 0;
+    color:orange;
+    text-transform: uppercase;
+    text-align: center;
+}
+.box button{
+    position: relative;
+    left:120px;
+    background-color:navy;
+    border-color:navy;
+    border-radius: 10px;
+    color:white;
+    text-transform: uppercase;
+}
+.tekst textarea{
+    height: 100%;
+    width: 100%;
+    padding-left: 20px;
+    font-size: 17px;
+    border-bottom: 2px solid silver;
+}
+.box output{
+    position: relative;
+}
+.ocena{
+    position: relative;
+    display: flex;
+}

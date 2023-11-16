@@ -1,0 +1,351 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+
+@media all and (min-width:450px){
+    .small{
+        display: none;
+    }
+}
+
+@media all and (max-width:450px){
+    body footer{
+        display: none;
+    }
+    .big{
+        display: none;
+    }
+    body{
+        display:list-item;
+     
+    }
+    img{
+        height:70px;
+        float:left;
+        align-items: center;
+        display:flex;
+        cursor: pointer;
+        
+    }
+    header{
+        width: 100%;
+    }
+    
+        output{
+    display: none;
+    }
+    
+   .nav-menu button{
+        width:30px;
+        height:30px;
+        background-color: navy;
+        border-color:navy;
+        color:white;
+    }
+    
+    button:disabled{
+        width:100px;
+        height:30px;
+        background-color: gray;
+        border-color:gray;
+        color:black;
+        cursor: not-allowed;
+    }
+
+    
+    body .info{
+        position: relative;
+        left:5px;
+        top:110%;
+        display: flex;
+        width: 100vw;
+        justify-content: space-between;
+        
+    }
+
+    body .info ul li .chart1{
+        position: relative;
+        left:-22px;
+        width:50vw;
+    }
+    body .info ul li .chart2{
+        position: relative;
+        left:-22px;
+        width: 100vw;
+    }
+    body .info ul .charts{
+        display: grid;
+    }
+    
+    .info_knj{
+        position: absolute;
+    }
+   
+
+    body output{
+        height:300px;
+    }
+    
+    body .info_slika{
+        position: relative;
+       margin-left: -510%;
+       
+        top:-60%;
+        height:600px;
+        width: 100vw;
+        display: grid;
+    
+    }
+    
+    
+    .info_slika img{
+        max-height:480px;
+        max-width: 300px;
+        height:auto;
+        width: auto;
+    }
+    
+    .info_slika li{
+        background-color: transparent;
+        position:relative;
+       
+        left:100px;
+        
+    }
+    .info_slika li a{
+        color:orange;
+        text-decoration: underline;
+        position: relative;
+        left:10px;
+
+        font-size:25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    .info_slika output{
+        position: relative;
+        margin-top: -70%;
+    }
+    
+    body .info_slika .izlaz{
+        position: relative;
+        background-color: yellow;
+        right:10vw;
+        width:50px;
+      
+        
+    }
+    
+    
+    .info input[type="text"]{
+        height: 100%;
+        width: 50%;
+        padding-left: 10px;
+        font-size: 17px;
+        outline: none;
+        border:none;
+        border-bottom: 2px solid silver;
+    }
+    .info input:focus{
+        height: 100%;
+        width: 50%;
+        padding-left: 10px;
+        font-size: 17px;
+        outline: none;
+        border:none;
+        border-bottom: 2px solid orange;
+    }
+    
+    
+    
+}
+
+h3{
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    display: flex;
+    font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+body{
+    position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+}
+header{
+    background-color:orange;
+    width: 100%;
+}
+
+li{
+    list-style: none;
+    background-color:orange;
+}
+
+img{
+    height:70px;
+    float:left;
+    align-items: center;
+    display:flex;
+    cursor: pointer;
+    
+}
+
+.tabela{
+    position: absolute;
+    box-sizing: border-box;
+    border-color:black;
+    margin-top: 100px;
+    left:0;
+    top:0;
+}
+
+output{
+    float:right;
+}
+
+button{
+    width:100px;
+    height:30px;
+    background-color: navy;
+    border-color:navy;
+    color:white;
+}
+
+
+.navbar{
+    min-height:70px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 24px;
+    background-color:orange;
+}
+
+.nav-menu{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+    background-color:orange;
+}
+
+.nav-branding{
+    font-size:2rem;
+}
+
+.info{
+    position: relative;
+    
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.info ul{
+    padding:0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:20px;
+    width: 100vw;
+}
+
+.info li{
+    font-size: 20px;
+    background-color: transparent;
+    display:flex;
+}
+.info li strong{
+    color:orange;
+}
+body output{
+    height:300px;
+}
+
+.info_slika{
+    position: absolute;
+    left:1100px;
+    height:700px;
+}
+
+
+.info_slika img{
+    height:auto;
+    max-height: 360px;
+    margin-bottom: 20px;
+}
+
+.info_slika li{
+    background-color: transparent;
+    position:relative;
+    left:140px;
+}
+.info_slika li a{
+    color:orange;
+    text-decoration: underline;
+
+    font-size:25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.izlaz{
+    position: relative;
+    left:-1vw;
+    width:50px;
+   
+    
+}
+.info input[type="text"]{
+    height: 100%;
+    width: 50%;
+    padding-left: 10px;
+    font-size: 17px;
+    outline: none;
+    border:none;
+    border-bottom: 2px solid silver;
+}
+.info input:focus{
+    height: 100%;
+    width: 50%;
+    padding-left: 10px;
+    font-size: 17px;
+    outline: none;
+    border:none;
+    border-bottom: 2px solid orange;
+}
+.chart1{
+    left:100px; position:relative;
+   
+}
+
+.chart2{
+    left:180px; position:relative
+}
+
+
+footer{
+    position: absolute;
+   bottom: 0;
+    width:100vw;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: orange;
+}
+footer strong{
+    font-weight: normal;
+}
